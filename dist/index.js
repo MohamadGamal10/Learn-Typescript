@@ -1,14 +1,20 @@
 "use strict";
-const small = 0;
-const medium = 1;
-const large = 2;
-function getRating(rating) {
-    if (typeof rating === "number") {
-        return 123;
+class Account {
+    constructor(id, owner, balance) {
+        this.id = 0;
+        this.owner = "";
+        this.balance = 0;
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
     }
-    else {
-        return "123";
+    deposit(amount) {
+        if (amount <= 0) {
+            throw new Error("amount must be greater than 0");
+        }
+        this.balance += amount;
     }
 }
-console.log(getRating(5));
-console.log(getRating("5"));
+let account = new Account(1, "ali", 100);
+account.deposit(100);
+console.log(account.balance);

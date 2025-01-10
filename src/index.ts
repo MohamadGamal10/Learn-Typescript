@@ -37,9 +37,9 @@
 // video 7 => Enum
 
 // javascript way
-const small = 0;
-const medium = 1;
-const large = 2;
+// const small = 0;
+// const medium = 1;
+// const large = 2;
 
 // typescript way (enum)
 
@@ -208,27 +208,59 @@ const large = 2;
 
 // unknown type
 
-function checkTypes(input:unknown):void {
-    if (typeof input === "string") {
-        input.toLowerCase(); //string
-    }
+// function checkTypes(input:unknown):void {
+//     if (typeof input === "string") {
+//         input.toLowerCase(); //string
+//     }
 
-    if (typeof input === "number") {
-        input.toFixed(); //number
-    }
+//     if (typeof input === "number") {
+//         input.toFixed(); //number
+//     }
     
-    if (typeof input === "boolean") {
-        input.valueOf(); // boolean
-    }
+//     if (typeof input === "boolean") {
+//         input.valueOf(); // boolean
+//     }
     
-}
+// }
 
 // never type
 
-function generateError(message:string):never {
-    throw new Error(message);
-    console.log("this code is not reachable");
-}
+// function generateError(message:string):never {
+//     throw new Error(message);
+//     console.log("this code is not reachable");
+// }
 
-// video 13 => 
+// video 13 => OOP
+
+//car proprietary (color / speed)
+//car methods (move() / stop())
+
+// video 14 => class & object
+
+// class Account {
+//     // properties
+//     id:number = 0;
+//     owner:string = "";
+//     balance:number = 0;
+
+//     constructor(id:number, owner:string, balance:number) {
+//         this.id = id;
+//         this.owner = owner;
+//         this.balance = balance;
+//     }
+
+//     // methods
+//     deposit(amount:number):void {
+//         if(amount <= 0) {
+//             throw new Error("amount must be greater than 0");
+//         }
+//         this.balance += amount;
+//     }
+// }
+
+// let account = new Account(1, "ali", 100);
+// account.deposit(100);
+// console.log(account.balance);
+
+// video 15 => 
 

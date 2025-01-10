@@ -1,20 +1,9 @@
 "use strict";
-class Account {
-    constructor(id, owner, balance) {
-        this.id = 0;
-        this.owner = "";
-        this.balance = 0;
-        this.id = id;
-        this.owner = owner;
-        this.balance = balance;
-    }
-    deposit(amount) {
-        if (amount <= 0) {
-            throw new Error("amount must be greater than 0");
-        }
-        this.balance += amount;
-    }
+class User {
 }
-let account = new Account(1, "ali", 100);
-account.deposit(100);
-console.log(account.balance);
+let user = new User();
+user.name = "ali";
+user.email = "ali@gmail.com";
+user.isStudent = true;
+user["family"] = "ahmed";
+console.log(user);

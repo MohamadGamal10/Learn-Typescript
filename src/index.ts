@@ -262,5 +262,331 @@
 // account.deposit(100);
 // console.log(account.balance);
 
-// video 15 => 
+// video 15 => instanceof keyword
+
+// class Account {
+//     // properties
+//     readonly id:number = 0; // can't change
+//     owner:string = "";
+//     balance:number = 0;
+//     username?:string; // optional
+
+//     constructor(id:number, owner:string, balance:number) {
+//         this.id = id;
+//         this.owner = owner;
+//         this.balance = balance;
+//     }
+
+//     // methods
+//     deposit(amount:number):void {
+//         if(amount <= 0) {
+//             throw new Error("amount must be greater than 0");
+//         }
+//         this.balance += amount;
+//     }
+// }
+
+// let Aliaccount = new Account(1, "ali", 100);
+
+// console.log(Aliaccount instanceof Account); // true
+
+// class Car {};
+
+// console.log(Aliaccount instanceof Car); // false
+
+// video 16 => Access Modifiers
+
+
+// class Account {
+//     // properties
+//     readonly id:number = 0; // can't change
+//     owner:string = "";
+//     private balance:number = 0;
+//     username?:string; // optional
+
+//     constructor(id:number, owner:string, balance:number) {
+//         this.id = id;
+//         this.owner = owner;
+//         this.balance = balance;
+//     }
+
+//     // methods
+//     deposit(amount:number):void {
+//         if(amount <= 0) {
+//             throw new Error("amount must be greater than 0");
+//         }
+//         this.balance += amount;
+//     }
+
+//     getBalance():number {
+//         return this.balance;
+//     }
+// }
+
+// let account = new Account(1, "ali", 100);
+
+// console.log(account.getBalance()); // 100
+
+// video 17 => Parameter Properties
+
+
+// class Account {
+//     // first way
+//     // readonly id:number = 0; // can't change
+//     // owner:string = "";
+//     // private _balance:number = 0;
+//     // username?:string; // optional
+
+//     // constructor(id:number, owner:string, balance:number) {
+//     //     this.id = id;
+//     //     this.owner = owner;
+//     //     this._balance = balance;
+//     // }
+
+//     // second way (parameter properties)
+//     username?:string; // optional
+//     constructor(public readonly id:number, public owner:string, private _balance:number){
+//         this.id = id;
+//         this.owner = owner;
+//         this._balance = _balance;
+//     }
+
+//     // methods
+//     deposit(amount:number):void {
+//         if(amount <= 0) {
+//             throw new Error("amount must be greater than 0");
+//         }
+//         this._balance += amount;
+//     }
+
+//     getBalance():number {
+//         return this._balance;
+//     }
+// }
+
+// let account = new Account(1, "ali", 100);
+
+// console.log(account.getBalance()); // 100
+
+// video 18 => getter & setter
+
+// class Account {
+//         // first way
+//         readonly id:number = 0; // can't change
+//         owner:string = "";
+//         private _balance:number = 0;
+//         username?:string; // optional
+    
+//         constructor(id:number, owner:string, balance:number) {
+//             this.id = id;
+//             this.owner = owner;
+//             this._balance = balance;
+//         }
+    
+//         // methods
+//         deposit(amount:number):void {
+//             if(amount <= 0) {
+//                 throw new Error("amount must be greater than 0");
+//             }
+//             this._balance += amount;
+//         }
+    
+//         // getBalance():number {
+//         //     return this._balance;
+//         // }
+
+//         // getter
+//         get balance():number {
+//             return this._balance;
+//         }
+
+//         // setter
+//         set balance(value:number) {
+//             if(value <= 0) {
+//                 throw new Error("amount must be greater than 0");
+//             }
+//             this._balance = value;
+//         }
+//     }
+    
+//     let account = new Account(1, "ali", 100);
+//     account.balance = 400;
+//     console.log(account.balance); // 400
+
+// video 19 => static methods & static properties
+
+// class Account {
+//     // first way
+//     readonly id:number = 0; // can't change
+//     owner:string = "";
+//     private _balance:number = 0;
+//     username?:string; // optional
+//     static color:string = "red";
+//     private static _members:number = 0;
+
+//     constructor(id:number, owner:string, balance:number) {
+//         this.id = id;
+//         this.owner = owner;
+//         this._balance = balance;
+//         Account._members += 1;
+//     }
+
+//     // methods
+
+//     static getMembers():number {
+//         return Account._members;
+//     }
+//     deposit(amount:number):void {
+//         if(amount <= 0) {
+//             throw new Error("amount must be greater than 0");
+//         }
+//         this._balance += amount;
+//     }
+
+//     static logger():void {
+//         console.log("this is a static method");
+//     }
+
+//     // getBalance():number {
+//     //     return this._balance;
+//     // }
+
+//     // getter
+//     get balance():number {
+//         return this._balance;
+//     }
+
+//     // setter
+//     set balance(value:number) {
+//         if(value <= 0) {
+//             throw new Error("amount must be greater than 0");
+//         }
+//         this._balance = value;
+//     }
+// }
+
+// const user1 = new Account(1, "ali", 100);
+// const user2 = new Account(2, "mohamed", 200);
+
+// console.log(Account.color); // red
+// Account.logger(); // this is a static method
+// console.log(Account.getMembers()); // 2
+
+
+// video 20 => Inheritance (extends)
+// video 21 => Fixing a bug
+// video 22 => inherited constructor (person => teacher & teacher => professor)
+// video 23 => protected member 
+
+
+// class Person {
+//     constructor(public firstName: string, public lastName: string) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//     }
+
+//     get fullName(): string {
+//         return this.firstName + " " + this.lastName;
+//     }
+
+//     walk(): void {
+//         console.log("walking");
+//     }
+
+//     protected drinkCoffe(): void {
+//         console.log("drinking coffe");
+//     }
+
+// }
+
+// class Student extends Person {
+//     constructor(firstName: string, lastName: string, public studentId: number) {
+//         super(firstName, lastName);
+//         this.studentId = studentId;    
+//     }
+
+//     override get fullName(): string {
+//         return "student: " + super.fullName;
+//     }
+
+//     study(): void {
+//         this.drinkCoffe();
+//         console.log("studying");
+//     }
+// }
+
+// class Teacher extends Person {
+//     constructor(firstName: string, lastName: string, public teacherId: number) {
+//         super(firstName, lastName);
+//         this.teacherId = teacherId;    
+//     }
+
+//     override get fullName(): string {
+//         return "teacher: " +  super.fullName;
+//     }
+
+//     tech(): void {
+//         this.drinkCoffe();
+//         console.log("teaching");
+//     }
+// }
+
+// class Professor extends Teacher {
+   
+// }
+
+// class Employee extends Person {
+//     override get fullName(): string {
+//         return "employee: " + super.fullName;
+//     }
+// }
+
+// let student = new Student("ali", "ahmed", 1);
+// let teacher = new Teacher("mohamed", "mohamed", 1);
+// let employee = new Employee("shady", "mohamed");
+// let professor = new Professor("shady", "mohamed", 3);
+
+// video 24 => Method Overriding (add override to the method)
+
+// console.log(student.fullName);
+// console.log(teacher.fullName);
+// console.log(employee.fullName);
+
+
+
+// video 25 => Polymorphism (abstract class) تعدد الاشكال
+
+// let student = new Student("shady", "mohamed", 1);
+// let teacher = new Teacher("shady", "mohamed", 1);
+// let employee = new Employee("shady", "mohamed");
+
+// const people: Person[] = [student, teacher, employee];
+
+// for (const element of people) {
+//     console.log(element.fullName);
+// }
+
+// video 26 => Index Signature
+
+// class User {
+//     [key: string]: string | boolean; // index signature
+// }
+
+// let user = new User();
+// user.name = "ali";
+// user.email = "ali@gmail.com";
+// user.isStudent = true;
+// user["family"] = "ahmed";
+
+// console.log(user);
+
+// video 27 => Abstract Class & Method
+
+
+
+// video 28 => 
+
+
+
+
 

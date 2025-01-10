@@ -37,9 +37,9 @@
 // video 7 => Enum
 
 // javascript way
-const small = 0;
-const medium = 1;
-const large = 2;
+// const small = 0;
+// const medium = 1;
+// const large = 2;
 
 // typescript way (enum)
 
@@ -208,27 +208,27 @@ const large = 2;
 
 // unknown type
 
-function checkTypes(input:unknown):void {
-    if (typeof input === "string") {
-        input.toLowerCase(); //string
-    }
+// function checkTypes(input:unknown):void {
+//     if (typeof input === "string") {
+//         input.toLowerCase(); //string
+//     }
 
-    if (typeof input === "number") {
-        input.toFixed(); //number
-    }
+//     if (typeof input === "number") {
+//         input.toFixed(); //number
+//     }
     
-    if (typeof input === "boolean") {
-        input.valueOf(); // boolean
-    }
+//     if (typeof input === "boolean") {
+//         input.valueOf(); // boolean
+//     }
     
-}
+// }
 
 // never type
 
-function generateError(message:string):never {
-    throw new Error(message);
-    console.log("this code is not reachable");
-}
+// function generateError(message:string):never {
+//     throw new Error(message);
+//     console.log("this code is not reachable");
+// }
 
 // video 13 => 
 

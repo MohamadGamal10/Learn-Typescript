@@ -1,9 +1,16 @@
 "use strict";
-class User {
+class Payment {
+    constructor() {
+        this.balance = 500;
+    }
+    get myBalance() {
+        return this.balance;
+    }
+    set myBalance(value) {
+        this.balance = value;
+    }
 }
-let user = new User();
-user.name = "ali";
-user.email = "ali@gmail.com";
-user.isStudent = true;
-user["family"] = "ahmed";
-console.log(user);
+const payment = new Payment();
+console.log(payment.myBalance);
+payment.myBalance = 1000;
+console.log(payment.myBalance);

@@ -68,9 +68,8 @@
 
 // enum User {
 //     Admin = "admin",
-//     Customer = "customer",   
+//     Customer = "customer",
 // }
-
 
 // video 8 => Functions
 
@@ -78,7 +77,7 @@
 // function sum1(x: number, y: number): void {
 //     const result = x + y;
 // }
-// // 2. function return type 
+// // 2. function return type
 // function sum2(x: number, y: number):number{
 //     const result = x + y;
 //     return result;
@@ -88,8 +87,7 @@
 //  console.log("without return type (void) " + result1); //without return type (void) undefined
 
 // const result2 = sum2(1, 2);
-// console.log("with return type " + result2); //with return type 
-
+// console.log("with return type " + result2); //with return type
 
 // function getFullName(name:string, family:string):string {
 //     return name + " " + family;
@@ -216,11 +214,11 @@
 //     if (typeof input === "number") {
 //         input.toFixed(); //number
 //     }
-    
+
 //     if (typeof input === "boolean") {
 //         input.valueOf(); // boolean
 //     }
-    
+
 // }
 
 // never type
@@ -296,7 +294,6 @@
 
 // video 16 => Access Modifiers
 
-
 // class Account {
 //     // properties
 //     readonly id:number = 0; // can't change
@@ -328,7 +325,6 @@
 // console.log(account.getBalance()); // 100
 
 // video 17 => Parameter Properties
-
 
 // class Account {
 //     // first way
@@ -376,13 +372,13 @@
 //         owner:string = "";
 //         private _balance:number = 0;
 //         username?:string; // optional
-    
+
 //         constructor(id:number, owner:string, balance:number) {
 //             this.id = id;
 //             this.owner = owner;
 //             this._balance = balance;
 //         }
-    
+
 //         // methods
 //         deposit(amount:number):void {
 //             if(amount <= 0) {
@@ -390,7 +386,7 @@
 //             }
 //             this._balance += amount;
 //         }
-    
+
 //         // getBalance():number {
 //         //     return this._balance;
 //         // }
@@ -408,7 +404,7 @@
 //             this._balance = value;
 //         }
 //     }
-    
+
 //     let account = new Account(1, "ali", 100);
 //     account.balance = 400;
 //     console.log(account.balance); // 400
@@ -472,12 +468,10 @@
 // Account.logger(); // this is a static method
 // console.log(Account.getMembers()); // 2
 
-
 // video 20 => Inheritance (extends)
 // video 21 => Fixing a bug
 // video 22 => inherited constructor (person => teacher & teacher => professor)
-// video 23 => protected member 
-
+// video 23 => protected member
 
 // class Person {
 //     constructor(public firstName: string, public lastName: string) {
@@ -502,7 +496,7 @@
 // class Student extends Person {
 //     constructor(firstName: string, lastName: string, public studentId: number) {
 //         super(firstName, lastName);
-//         this.studentId = studentId;    
+//         this.studentId = studentId;
 //     }
 
 //     override get fullName(): string {
@@ -518,7 +512,7 @@
 // class Teacher extends Person {
 //     constructor(firstName: string, lastName: string, public teacherId: number) {
 //         super(firstName, lastName);
-//         this.teacherId = teacherId;    
+//         this.teacherId = teacherId;
 //     }
 
 //     override get fullName(): string {
@@ -532,7 +526,7 @@
 // }
 
 // class Professor extends Teacher {
-   
+
 // }
 
 // class Employee extends Person {
@@ -551,8 +545,6 @@
 // console.log(student.fullName);
 // console.log(teacher.fullName);
 // console.log(employee.fullName);
-
-
 
 // video 25 => Polymorphism (abstract class) تعدد الاشكال
 
@@ -580,13 +572,156 @@
 
 // console.log(user);
 
-// video 27 => Abstract Class & Method
+// video 27, 28 => Abstract Class & Method
 
+// abstract class Payment {
+//     constructor(public currency: string) {}
+//     abstract pay():void ;
 
+//     protected paid():boolean {
+//         return true;
+//     }
 
-// video 28 => 
+//     protected noPaid():boolean {
+//         return false;
+//     }
+// }
 
+// class paymentWithUSD extends Payment {
+//     constructor(currency: string) {
+//         super(currency);
+//     }
+//   override pay():void {
+//       console.log("paying with USD");
+//   }
+// }
 
+// class paymentWithEGP extends Payment {
+//     constructor(currency: string) {
+//         super(currency);
+//     }
+//   override pay():void {
+//         console.log("paying with EGP");
+//   }
+// }
 
+// const payment1 = new paymentWithUSD("USD");
+// const payment2 = new paymentWithEGP("EGP");
+
+// console.log(payment1); // paymentWithUSD { currency: 'USD' }
+// console.log(payment2); // paymentWithEGP { currency: 'EGP' }
+
+// video 29 => interface
+
+// interface Auth {
+//     register(username: string, email: string, password: string):void;
+//     login( email: string, password: string):void;
+//     role: string;
+// }
+
+// class User implements Auth {
+//     register(username: string, email: string, password: string): void {
+//         console.log(`registering user: ${username}, ${email}, ${password}`);
+//     }
+//     login(email: string, password: string): void {
+//         console.log(`login user: ${email}, ${password}`);
+//     }
+//     role: string = "user";
+// }
+
+// interface Book {
+//     title: string;
+//     author: string;
+// }
+
+// const newBook : Book = {
+//     title: "book",
+//     author: "ali"
+// }
+
+// video 30, 31 => Encapsulation
+
+// class Payment {
+//     private balance: number = 500;
+
+//     get myBalance(): number {
+//         return this.balance;
+//     }
+
+//     set myBalance(value: number) {
+//         this.balance = value;
+//     }
+// }
+
+// const payment = new Payment();
+// console.log(payment.myBalance); // 500
+// payment.myBalance = 1000; // 1000
+// console.log(payment.myBalance); // 1000
+
+// video 32 => Generic Class
+
+// class Product <Type1, Type2>{
+//     constructor(public title:Type1, public price:Type2) {}
+// }
+
+// const product1 = new Product<string, number>("book", 100);
+// const product2 = new Product<boolean, number>(true, 10);
+
+// video 33 => Generic Functions
+
+// function getValue<T>(value:T): T {
+//     return value;
+// }
+
+// console.log(getValue<string>("hello")); // hello
+// console.log(getValue<number>(123)); // 123
+// console.log(getValue<boolean>(true)); // true
+
+// video 34 => Generic Interfaces Part 1
+
+// interface Product <T>{
+//     item: T,
+//     price: number,
+//     description: string
+// }
+
+// type Book = {
+//     title: string,
+//     author: string
+// }
+
+// const book: Product<Book> = {
+//     item: { title: "book", author: "ali" },
+//     price: 100,
+//     description: "this is a book"
+// }
+
+// // video 35 , 36 , 37 => Generic Interfaces Part 2
+
+// type Book = {
+//   title: string;
+//   author: string;
+//   numberOfPages: number;
+// };
+// interface IProduct<T> {
+//   createProduct(product: T): T;
+//   saveProductToDB(product: T): void;
+// }
+// // Example 1:
+// class Product1 implements IProduct<Book> {
+//   createProduct(product: Book): Book {
+//     product = {
+//       title: "Book 1",
+//       author: "Author 1",
+//       numberOfPages: 110,
+//     };
+//     return product;
+//   }
+//   saveProductToDB(product: Book): void {
+//     console.log(product);
+//   }
+// }
+
+// video 38 => keyof Operator
 
 
